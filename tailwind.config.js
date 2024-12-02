@@ -7,9 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        Alegrya: ["Alegreya", "sans-serif"],
+        AlegryaSans: ["AlegreyaSans", "sans-serif"],
       },
     },
   },
