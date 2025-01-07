@@ -1,8 +1,8 @@
 export function Logo({ className }) {
   return (
     <svg
-      width="300"
-      height="300"
+      width="200"
+      height="200"
       viewBox="117 115 50 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

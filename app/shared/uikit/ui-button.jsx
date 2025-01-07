@@ -6,7 +6,7 @@ export function UiButton({ children, className, type, form }) {
       type={type}
       form={form}
       className={clsx(
-        "flex items-center justify-center text-4xl font-medium px-24 py-6 rounded-xl transition-colors bg-[#69c8af] hover:bg-[#55a28e] shadow-md",
+        "flex items-center justify-center text-3xl font-medium px-24 rounded-xl transition-colors bg-[#69c8af] hover:bg-[#55a28e] shadow-md",
         className,
       )}
     >

@@ -1,8 +1,7 @@
 import { Logo } from "@/public/icons/logo";
 import { WelcomePageLayout } from "./ui/welcomePageLayout";
-import { SignLink } from "./shared/uikit/sign-link";
-import { UiButton } from "./shared/uikit/ui-button";
-import "./firebase";
+import { SignLink } from "../shared/uikit/sign-link";
+import { UiButton } from "../shared/uikit/ui-button";
 import Link from "next/link";
 
 export default function WelcomePage() {
@@ -11,10 +10,10 @@ export default function WelcomePage() {
       logo={<Logo />}
       button={
         <Link href="/login">
-          <UiButton>Login With Email</UiButton>
+          <UiButton className="py-5">Login With Email</UiButton>
         </Link>
       }
-      link={<SignLink href='/sign-up'>Sign Up</SignLink>}
+      link={<SignLink href="/sign-up">Sign Up</SignLink>}
     />
   );
 }

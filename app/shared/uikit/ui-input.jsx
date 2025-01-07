@@ -1,11 +1,16 @@
-export function UiInput({ type, label }) {
+import clsx from "clsx"
+
+export function UiInput({ type, label, value, onChange, formInfo, title, className }) {
   return (
     <input
-      required
+      {...formInfo}
       type={type}
       aria-label={label}
+      title={title}
       placeholder={label}
-      className="bg-transparent p-3 text-white/70 border-b border-white/70 focus:outline-none focus:ring-0 focus:border-[#69c8af] focus:border-b-2 focus:placeholder:text-[#69c8af]"
+      value={value}
+      onChange={onChange}
+      className={clsx("bg-transparent p-3 text-white border-b border-white/70 focus:outline-none focus:ring-0 focus:border-[#69c8af] focus:border-b-2 focus:placeholder:text-[#69c8af]", className)}
     />
   );
 }
