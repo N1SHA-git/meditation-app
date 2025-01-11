@@ -5,9 +5,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className="min-h-screen font-[AlegreyaSans] bg-[url('/images/welcome-bg.jpg')] 
-          bg-cover bg-center bg-no-repeat text-white antialiased text-xl font-medium
-          backdrop-blur-sm"
+        className="min-h-screen font-[AlegreyaSans] text-white antialiased text-xl font-medium bg-[#224042]"
       >
         {children}
       </body>

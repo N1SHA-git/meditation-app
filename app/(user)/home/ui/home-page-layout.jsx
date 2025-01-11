@@ -4,6 +4,8 @@ export function HomePageLayout({
   header,
   filter,
   videoList,
+  isModalOpen,
+  videoPlayer,
 }) {
   return (
     <>
@@ -27,6 +29,7 @@ export function HomePageLayout({
       <section className="flex justify-center py-20">
         {filter}
         {videoList}
+        {isModalOpen && videoPlayer} 
       </section>
     </>
   );

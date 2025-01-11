@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export function useVideo() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const [videos, setVideos] = useState([]);
   const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
@@ -44,5 +46,9 @@ export function useVideo() {
     };
   }, [GOOGLE_API_KEY]);
 
-  return videos;
+  const handleModalClick = (id) => {
+    setIsModalOpen((prevState) => !prevState);
+    id ? setSelectedVideo(id) : setSelectedVideo(null);
+  };
+  return [videos, isModalOpen, selectedVideo, handleModalClick];
 }

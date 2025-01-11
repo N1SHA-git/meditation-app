@@ -13,6 +13,7 @@ import { Header } from "../header/header";
 import { VideoList } from "./ui/video-list";
 import { VideoCard } from "./ui/video-card";
 import { useVideo } from "@/app/hooks/use-video";
+import { VideoPlayer } from "./ui/video-player";
 
 // Массив с данными для иконок
 const moodIcons = [
@@ -24,8 +25,7 @@ const moodIcons = [
   { icon: <WildIcon />, name: "Wild" },
 ];
 export default function HomePage() {
-
-  const videos = useVideo();
+  const [videos, isModalOpen, selectedVideo, handleModalClick] = useVideo();
 
   const videoData = videos.map((video) => ({
     id: video.id,
@@ -49,9 +49,14 @@ export default function HomePage() {
               key={id}
               youtubeThumbnail={youtubeThumbnail}
               title={title}
+              onClick={() => handleModalClick(id)}
             />
           ))}
         />
+      }
+      isModalOpen={isModalOpen}
+      videoPlayer={
+        <VideoPlayer videoId={selectedVideo} onClick={handleModalClick} />
       }
     />
   );
