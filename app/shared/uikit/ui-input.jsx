@@ -6,6 +6,7 @@ export function UiInput({ type, label, value, onChange, formInfo, title, classNa
       {...formInfo}
       type={type}
       aria-label={label}
+      autoComplete={label}
       title={title}
       placeholder={label}
       value={value}

@@ -10,17 +10,20 @@ import {
 export function useAuth() {
   const router = useRouter();
 
-  const [{ username, email, password, uid, token, isAuth }, setAuthState] =
-    useState(() => {
-      return {
-        username: "",
-        email: "",
-        password: "",
-        uid: "",
-        token: "",
-        isAuth: false,
-      };
-    });
+  const [
+    { username, email, password, uid, token, isAuth, isLoading },
+    setAuthState,
+  ] = useState(() => {
+    return {
+      username: "",
+      email: "",
+      password: "",
+      uid: "",
+      token: "",
+      isAuth: false,
+      isLoading: true,
+    };
+  });
 
   const handleInputChange = (event, field) => {
     setAuthState((lastAuthState) => {
@@ -33,8 +36,9 @@ export function useAuth() {
 
   const handleSignButton = async (email, password, isLogin) => {
     const auth = getAuth();
-    let userCredential;
+
     try {
+      let userCredential;
       if (isLogin) {
         userCredential = await signInWithEmailAndPassword(
           auth,
@@ -48,18 +52,23 @@ export function useAuth() {
           password,
         );
       }
+
       const { user } = userCredential;
       const token = await user.getIdToken();
+
       setAuthState((lastAuthState) => {
         return {
           ...lastAuthState,
           uid: user.uid,
           token,
           isAuth: true,
+          isLoading: false,
         };
       });
-      router.push("/");
+
+      router.push("/home");
     } catch (error) {
+      setAuthState((lastAuthState) => ({ ...lastAuthState, isLoading: false }));
       router.push(
         `/login?error=${encodeURIComponent("Invalid email or password")}`,
       );
@@ -74,6 +83,7 @@ export function useAuth() {
     uid,
     token,
     isAuth,
+    isLoading,
     handleSignButton,
   };
 }

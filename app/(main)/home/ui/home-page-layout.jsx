@@ -26,7 +26,7 @@ export function HomePageLayout({
           </ul>
         </div>
       </section>
-      <section className="flex justify-center py-20">
+      <section className="flex flex-col justify-center py-10">
         {filter}
         {videoList}
         {isModalOpen && videoPlayer} 

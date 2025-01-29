@@ -9,11 +9,13 @@ import { Logo } from "@/public/icons/logo";
 import { AuthorizationForm } from "../ui/authorization-form";
 import { UiInput } from "@/app/shared/uikit/ui-input";
 import { useAuth } from "@/app/hooks/use-auth";
-import "../../firebase";
+import "../../lib/firebase";
 import { Leaves } from "@/public/icons/leaves";
+import Link from "next/link";
 
 export default function LoginPage() {
-  const { email, password, handleInputChange, handleSignButton } = useAuth();
+  const { email, password, handleInputChange, handleSignButton, isLoading } =
+    useAuth();
 
   const {
     register,
@@ -89,7 +91,7 @@ export default function LoginPage() {
           <UiButton
             type="submit"
             form="AuthorizationForm"
-            className="min-w-full py-3 rounded-lg"
+            className="min-w-full rounded-lg"
           >
             LOGIN
           </UiButton>

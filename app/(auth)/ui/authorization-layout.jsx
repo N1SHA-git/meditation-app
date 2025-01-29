@@ -8,7 +8,7 @@ export function AuthorizationLayout({
   link,
 }) {
   return (
-    <div className="flex flex-col gap-4 justify-center p-4 shadow-2xl border border-white/70 rounded-lg z-10 overflow-hidden">
+    <div className="flex flex-col gap-4 justify-center p-4 m-4 shadow-2xl border border-white/70 rounded-lg z-10 overflow-hidden">
       {logo}
       <header className="mt-2 max-w-[410px]">
         <h2 className="font-[Alegreya] text-3xl font-bold">{title}</h2>

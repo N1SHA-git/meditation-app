@@ -3,7 +3,7 @@ import Image from "next/image";
 export function VideoCard({ youtubeThumbnail, title, onClick }) {
   return (
     <button
-      className="w-[420px] h-[230px] transition-all hover:shadow-lg hover:shadow-[#000000] hover:opacity-80 rounded-2xl"
+      className="animate-fade-in w-[420px] h-[230px] transition-all hover:shadow-lg hover:shadow-[#000000] hover:opacity-80 rounded-2xl"
       onClick={onClick}
     >
       <Image
