@@ -1,24 +1,29 @@
+"use client";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export function AlbumList({ albums }) {
   return (
-    <ul className="flex">
+    <Swiper spaceBetween={15} slidesPerView={"4.5"}>
       {albums.map((album) => (
-        <li key={album.id}>
-          <div>
+        <SwiperSlide key={album.id}>
+          <div className="flex flex-col items-center">
             <Image
               src={album.image}
-              width="300"
-              height="300"
+              width="200"
+              height="200"
               alt={album.name}
-              className="w-full aspect-square"
+              className="rounded-lg object-cover"
               priority
             />
-            <h3>{album.name}</h3>
-            <p className="text-gray-600">{album.artist_name}</p>
+            <h3 className="w-[200px] mt-1  truncate">{album.name}</h3>
+            <p className="w-[200px] text-base text-gray-500 truncate">
+              {album.artist_name}
+            </p>
           </div>
-        </li>
+        </SwiperSlide>
       ))}
-    </ul>
+    </Swiper>
   );
 }

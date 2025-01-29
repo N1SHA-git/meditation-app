@@ -16,9 +16,9 @@ export function useMusic() {
       try {
         const [calmResponse, ambientResponse, feelGoodResponse] =
           await Promise.all([
-            fetch("/api/jamendo?limit=10&tags=calm"),
-            fetch("/api/jamendo?limit=10&tags=ambient"),
-            fetch("/api/jamendo?limit=10&tags=feelGood"),
+            fetch("/api/jamendo?tag=calm"),
+            fetch("/api/jamendo?tag=ambient"),
+            fetch("/api/jamendo?tag=feelGood"),
           ]);
 
         const calmData = await calmResponse.json();
