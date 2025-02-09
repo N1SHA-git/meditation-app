@@ -1,3 +1,4 @@
+"use client";
 import { Logo } from "@/public/icons/logo";
 import { WelcomePageLayout } from "./ui/welcomePageLayout";
 import { SignLink } from "../shared/uikit/sign-link";

@@ -1,3 +1,4 @@
+"use client";
 import { ArrowDown } from "@/public/icons/arrow-down";
 
 const options = ["Views", "Likes", "Date"];

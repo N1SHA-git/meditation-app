@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 
 export function UiButton({ children, className, type, form, disabled, onClick }) {

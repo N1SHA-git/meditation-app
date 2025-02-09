@@ -3,6 +3,7 @@
 import { useMusic } from "@/app/hooks/use-music";
 import { MusicLayout } from "./ui/music-layout";
 import { AlbumList } from "./ui/album-list";
+import ProtectedRoute from "@/app/shared/protectedRoute";
 
 export default function MusicPage() {
   const { calmAlbumsData, ambientAlbumsData, feelGoodAlbumsData } = useMusic();
@@ -11,12 +12,13 @@ export default function MusicPage() {
     !ambientAlbumsData?.length ||
     !feelGoodAlbumsData?.length;
 
-  console.log(calmAlbumsData)
   return (
-    <MusicLayout
-      calmAlbums={<AlbumList albums={calmAlbumsData || []} />}
-      ambientAlbums={<AlbumList albums={ambientAlbumsData || []} />}
-      feelGoodAlbums={<AlbumList albums={feelGoodAlbumsData || []} />}
-    />
+    <ProtectedRoute>
+      <MusicLayout
+        calmAlbums={<AlbumList albums={calmAlbumsData || []} />}
+        ambientAlbums={<AlbumList albums={ambientAlbumsData || []} />}
+        feelGoodAlbums={<AlbumList albums={feelGoodAlbumsData || []} />}
+      />
+    </ProtectedRoute>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { Header } from "../header/header";
 
 export default function RootLayout({ children }) {

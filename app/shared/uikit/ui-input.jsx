@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx"
 
 export function UiInput({ type, label, value, onChange, formInfo, title, className }) {

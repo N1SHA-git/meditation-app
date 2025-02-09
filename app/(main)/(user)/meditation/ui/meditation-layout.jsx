@@ -1,10 +1,4 @@
-import { useState } from "react";
-export function MeditationLayout({ image, timer, button }) {
-  const [isSplit, setIsSplit] = useState(false);
-  const handleToggle = () => {
-    setIsSplit(!isSplit);
-  };
-
+export function MeditationLayout({ image, timer }) {
   return (
     <section className="flex flex-col items-center justify-center gap-2">
       <div className="flex flex-col items-center justify-center gap-1">
@@ -14,9 +8,7 @@ export function MeditationLayout({ image, timer, button }) {
         </p>
       </div>
       {image}
-      <div>
-        {timer}
-      </div>
+      <div>{timer}</div>
     </section>
   );
 }

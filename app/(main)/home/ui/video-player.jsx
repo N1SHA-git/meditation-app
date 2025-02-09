@@ -1,3 +1,4 @@
+"use client";
 export function VideoPlayer({ videoId, onClick }) {
   return (
     <div

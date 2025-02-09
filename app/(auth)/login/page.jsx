@@ -11,7 +11,7 @@ import { UiInput } from "@/app/shared/uikit/ui-input";
 import { useAuth } from "@/app/hooks/use-auth";
 import "../../lib/firebase";
 import { Leaves } from "@/public/icons/leaves";
-import Link from "next/link";
+
 
 export default function LoginPage() {
   const { email, password, handleInputChange, handleSignButton, isLoading } =
