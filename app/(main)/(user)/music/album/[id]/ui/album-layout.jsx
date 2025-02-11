@@ -8,6 +8,7 @@ export function AlbumLayout({
   timeSinceUpdate,
   tag,
   albumImageSrc,
+  tracks,
 }) {
   return (
     <>
@@ -16,8 +17,8 @@ export function AlbumLayout({
           <div className="flex gap-2 items-center">
             {playButton}
             <div className="flex flex-col flex-none items-start gap-2">
-              <p className="bg-[#2b3632] px-2 py-1 flex-none max-w-96 truncate">{albumName}</p>
-              <p className="bg-[#2b3632] px-2 max-w-96 truncate">{artistName}</p>
+              <p className="bg-[#2b3632] px-2 py-1 flex-none max-w-[530px]">{albumName}</p>
+              <p className="bg-[#2b3632] px-2 max-w-[530px]">{artistName}</p>
             </div>
           </div>
           <div className="bg-[#2b3632] rounded-full w-[110px] aspect-square flex flex-col items-center text-sm leading-none">
@@ -45,6 +46,7 @@ export function AlbumLayout({
           )}
         </div>
       </div>
+      {tracks}
     </>
   );
 }

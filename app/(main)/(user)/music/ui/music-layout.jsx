@@ -7,13 +7,10 @@ export function MusicLayout({ calmAlbums, ambientAlbums, feelGoodAlbums }) {
   return (
     <section className="w-3/4 mx-auto">
       <h1 className="sr-only">Music</h1>
-      {albums.map((album, index) => (
-        <div key={index}>
-          <div className="my-16">
-            <h2 className="text-3xl font-Alegrya mb-8">{album.tag}</h2>
-            {album.name}
-          </div>
-          <div className="w-full h-px bg-white/20 last:mb-16"></div>
+      {albums.map((album) => (
+        <div key={album.tag} className="my-16 border-b border-white/20 pb-8 last:mb-20">
+          <h2 className="text-3xl font-Alegrya mb-8">{album.tag}</h2>
+          {album.name}
         </div>
       ))}
     </section>
