@@ -14,10 +14,12 @@ export async function GET(req) {
     if (tag) {
       response = await fetch(
         `${JAMENDO_API_URL}/musicinfo?client_id=${API_KEY}&format=json&tag=${tag}&limit=20`,
+        { next: { revalidate: 21600 } },
       );
     } else {
       response = await fetch(
         `${JAMENDO_API_URL}/tracks?client_id=${API_KEY}&format=json&id=${albumId}`,
+        { next: { revalidate: 21600 } },
       );
     }
 

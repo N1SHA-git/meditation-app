@@ -43,6 +43,7 @@
     src: url(../../public/fonts/AlegreyaSans-Medium.woff2) format('woff2');
   }
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -54,6 +55,33 @@
   }
 }
 
+@keyframes show {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes hide {
+  0% {
+    width:100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 0.5s ease-in-out forwards;
 }
+
+.animate-collapse {
+  animation: hide 0.3s backwards;
+}
+
+.animate-uncollapse {
+  animation: show 0.3s forwards;
+}
+

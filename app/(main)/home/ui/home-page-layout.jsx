@@ -11,7 +11,7 @@ export function HomePageLayout({
     <>
       <section
         className="bg-[url('/images/welcome-bg.jpg')] 
-              bg-cover bg-bottom bg-no-repeat shadow-xl shadow-[#638c7a9b]"
+        bg-cover bg-bottom bg-no-repeat shadow-xl shadow-[#638c7a9b]"
       >
         {header}
         <div className="flex flex-col items-center justify-center gap-12">
@@ -29,7 +29,7 @@ export function HomePageLayout({
       <section className="flex flex-col justify-center py-10">
         {filter}
         {videoList}
-        {isModalOpen && videoPlayer} 
+        {isModalOpen && videoPlayer}
       </section>
     </>
   );

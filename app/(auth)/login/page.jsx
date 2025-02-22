@@ -8,11 +8,10 @@ import { SignLink } from "@/app/shared/uikit/sign-link";
 import { Logo } from "@/public/icons/logo";
 import { AuthorizationForm } from "../ui/authorization-form";
 import { UiInput } from "@/app/shared/uikit/ui-input";
-import { useAuth } from "@/app/hooks/use-auth";
+import { useAuth } from "@/app/context/auth-context";
 import "../../lib/firebase";
 import { Leaves } from "@/public/icons/leaves";
-
-
+const isLoginPage = true;
 export default function LoginPage() {
   const { email, password, handleInputChange, handleSignButton, isLoading } =
     useAuth();
@@ -28,7 +27,6 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const errorMessage = searchParams.get("error");
 
-  const isLogin = true;
 
   return (
     <>
@@ -39,13 +37,13 @@ export default function LoginPage() {
         form={
           <AuthorizationForm
             onSubmit={handleSubmit(() =>
-              handleSignButton(email, password, isLogin),
+              handleSignButton(email, password, isLoginPage),
             )}
             emailInput={
               <UiInput
                 type="email"
                 label="Email Address"
-                value={email}
+                value={email || ""}
                 onChange={(e) => handleInputChange(e, "email")}
                 formInfo={{
                   ...register("email", {
@@ -61,7 +59,7 @@ export default function LoginPage() {
               <UiInput
                 type="password"
                 label="Password"
-                value={password}
+                value={password || ""}
                 onChange={(e) => handleInputChange(e, "password")}
                 formInfo={{
                   ...register("password", {
@@ -103,6 +101,27 @@ export default function LoginPage() {
       <Leaves className="absolute z-0 -top-[48%] -left-[10%] rotate-180" />
       <Leaves className="absolute z-0 -top-[70%] left-[50%] -rotate-90" />
       <Leaves className="absolute z-0 top-[50%] -left-[40%]" />
+
+      <style jsx global>{`
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0px 1000px inherit inset !important;
+          box-shadow: 0 0 0px 1000px inherit inset !important;
+          -webkit-text-fill-color: #fff !important;
+          caret-color: #fff;
+          color: #fff !important;
+          font-size: inherit !important;
+          background-color: inherit !important;
+          transition: background-color 5000s ease-in-out 0s !important;
+        }
+      `}</style>
     </>
   );
 }

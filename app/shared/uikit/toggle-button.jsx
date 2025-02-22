@@ -24,10 +24,14 @@ export function ToggleButton({
     >
       {isPaused ? (
         <Play
+          fill="#ffffff"
           className={clsx("text-white", { md: "w-8 h-8", sm: "w-3 h-3" }[size])}
         />
       ) : (
-        <Pause className="w-8 h-8 text-white" />
+        <Pause
+          fill="#ffffff"
+          className={clsx("text-white", { md: "w-8 h-8", sm: "w-3 h-3" }[size])}
+        />
       )}
     </button>
   );

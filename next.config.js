@@ -7,8 +7,13 @@ const nextConfig = {
         hostname: "usercontent.jamendo.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        pathname: "/**",
+      }
     ],
-    domains: ["i.ytimg.com"],
+    
   },
 };
 

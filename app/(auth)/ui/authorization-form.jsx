@@ -18,12 +18,12 @@ export function AuthorizationForm({
     >
       {!!nameInput && nameInput}
       {!!nameInput && (
-        <p class="-mt-2 text-sm text-red-500">{usernameErrorMessage}</p>
+        <p className="-mt-2 text-sm text-red-500">{usernameErrorMessage}</p>
       )}
       {emailInput}
-      <p class="-mt-2 text-sm text-red-500">{emailErrorMessage}</p>
+      <p className="-mt-2 text-sm text-red-500">{emailErrorMessage}</p>
       {passwordInput}
-      <p class="-mt-2 text-sm text-red-500">{passwordErrorMessage}</p>
+      <p className="-mt-2 text-sm text-red-500">{passwordErrorMessage}</p>
     </form>
   );
 }

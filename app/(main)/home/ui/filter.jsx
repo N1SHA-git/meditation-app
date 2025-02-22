@@ -1,4 +1,5 @@
 "use client";
+import { DropDownMenu } from "@/app/shared/uikit/dropdown-menu";
 import { ArrowDown } from "@/public/icons/arrow-down";
 
 const options = ["Views", "Likes", "Date"];
@@ -14,24 +15,16 @@ export function Filter({ isOpen, selectOption, selectedOption, toggleSelect }) {
           {selectedOption}
         </span>
         <ArrowDown
-          className={`text-white transition-transform duration-300 ${
+          className={`text-white transition-transform duration-200 ${
             isOpen ? "rotate-180" : "rotate-0"
           }`}
         />
       </button>
-      {isOpen && (
-        <div className="absolute left-0 mt-2 rounded-lg shadow-lg bg-white border border-gray-200 z-10 min-w-[10rem]">
-          {options.map((option, index) => (
-            <button
-              key={index}
-              className="flex justify-start items-center gap-2 w-full px-4 py-2 text-sm text-gray-800 hover:bg-[#55a28e] hover:text-white focus:bg-[#55a28e] focus:text-white transition-all duration-300 hover:rounded-lg"
-              onClick={() => selectOption(option)}
-            >
-              <span className="font-medium">{option}</span>
-            </button>
-          ))}
-        </div>
-      )}
+      <DropDownMenu
+        isOpen={isOpen}
+        options={options}
+        onSelectOption={selectOption}
+      />
     </div>
   );
 }

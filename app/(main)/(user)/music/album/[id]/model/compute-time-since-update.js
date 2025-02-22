@@ -1,4 +1,4 @@
-export function getTimeSinceUpdate(dateString) {
+export function computeTimeSinceUpdate(dateString) {
   const inputDate = new Date(dateString);
   if (isNaN(inputDate)) return ;
   const currentDate = new Date();

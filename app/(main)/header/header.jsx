@@ -1,8 +1,11 @@
+"use client";
 import { Logo } from "@/public/icons/logo";
 import Link from "next/link";
 import { Profile } from "./profile";
+import { useAuth } from "@/app/context/auth-context";
 
 export function Header() {
+  const { username } = useAuth();
   return (
     <header className="flex justify-between pt-6 px-8">
       <div className="flex gap-5 items-center">
@@ -25,7 +28,7 @@ export function Header() {
             </li>
             <li>
               <Link href="/tools">
-                <p className="hover:text-[#55a28e] transition-colors duration-300">
+                <p className="hover:text-[#55a28e] transition-colors duration-200">
                   Tools
                 </p>
               </Link>
@@ -33,7 +36,7 @@ export function Header() {
           </ul>
         </nav>
       </div>
-      <Profile name="Afreen" className="max-w-36 w-36" />
+      <Profile name={username} className="max-w-36 w-36" />
     </header>
   );
 }

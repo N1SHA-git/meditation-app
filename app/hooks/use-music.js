@@ -10,6 +10,7 @@ export function useMusic(albumId = null) {
       albumData,
       albumTracks,
       albumDuration,
+      firstTrack,
     },
     setMusicState,
   ] = useState(() => ({
@@ -19,6 +20,7 @@ export function useMusic(albumId = null) {
     albumData: [],
     albumTracks: [],
     albumDuration: "00:00",
+    firstTrack: null,
   }));
 
   useEffect(() => {
@@ -37,11 +39,20 @@ export function useMusic(albumId = null) {
 
         setMusicState((prevState) => ({
           ...prevState,
-          calmAlbumsData: calmData?.results?.map((album) => ({ ...album, tag: "Calm" })) || [],
-          ambientAlbumsData: ambientData?.results?.map((album) => ({ ...album, tag: "Ambient" })) || [],
-          feelGoodAlbumsData: feelGoodData?.results?.map((album) => ({ ...album, tag: "FeelGood" })) || [],
+          calmAlbumsData:
+            calmData?.results?.map((album) => ({ ...album, tag: "Calm" })) ||
+            [],
+          ambientAlbumsData:
+            ambientData?.results?.map((album) => ({
+              ...album,
+              tag: "Ambient",
+            })) || [],
+          feelGoodAlbumsData:
+            feelGoodData?.results?.map((album) => ({
+              ...album,
+              tag: "FeelGood",
+            })) || [],
         }));
-        
       } catch (error) {
         console.error("Error fetching albums:", error);
       }
@@ -76,8 +87,13 @@ export function useMusic(albumId = null) {
         setMusicState((prevState) => ({
           ...prevState,
           albumData: data.results[0],
-          albumTracks: data.results[0]?.tracks || [],
+          albumTracks:
+            data.results[0]?.tracks.map((track) => ({
+              ...track,
+              album_id: albumId,
+            })) || [],
           albumDuration: getAlbumDuration(data.results[0]?.tracks),
+          firstTrack: { ...data.results[0]?.tracks[0], album_id: albumId },
         }));
       } catch (error) {
         console.error("Error fetching album tracks:", error);
@@ -87,6 +103,7 @@ export function useMusic(albumId = null) {
     fetchAlbumTracks();
   }, [albumId]);
 
+
   return {
     calmAlbumsData,
     ambientAlbumsData,
@@ -94,5 +111,6 @@ export function useMusic(albumId = null) {
     albumData,
     albumTracks,
     albumDuration,
+    firstTrack,
   };
 }

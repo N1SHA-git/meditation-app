@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -59,7 +59,7 @@ export function useVideo() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [GOOGLE_API_KEY]);
 
   const handleModalClick = (id) => {
     setVideoState((lastVideoState) => ({
