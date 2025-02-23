@@ -40,7 +40,7 @@ export function Profile({ className, name, avatar = defaultAvatarSrc }) {
           height={48}
           width={48}
           src={avatar}
-          alt="logo"
+          alt={name}
           className="rounded-full"
           unoptimized
         />

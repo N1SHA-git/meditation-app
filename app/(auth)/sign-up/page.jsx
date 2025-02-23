@@ -55,6 +55,10 @@ export default function SignUpPage() {
                       value: /^[a-zA-Zа-яА-Я0-9._-]+$/,
                       message: "Invalid name",
                     },
+                    maxLength: {
+                      value: 20,
+                      message: "The name must be no more than 20 characters",
+                    },
                   }),
                 }}
                 className={errors?.username?.message && "border-red-500"}

@@ -1,6 +1,7 @@
 import GlobalAudioPlayer from "./(main)/(user)/music/album/[id]/ui/global-audio/globalAudioPlayer";
 import { AudioPlayerProvider } from "./context/audio-player-context";
 import { AuthProvider } from "./context/auth-context";
+import { LayoutWrapper } from "./layout-wrapper";
 import "./styles/globals.css";
 
 export const metadata = {
@@ -15,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen font-[AlegreyaSans] text-white antialiased text-xl font-medium bg-[#224042]">
         <AuthProvider>
           <AudioPlayerProvider>
-            {children}
+            <LayoutWrapper>{children}</LayoutWrapper>
             <GlobalAudioPlayer />
           </AudioPlayerProvider>
         </AuthProvider>
